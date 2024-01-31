@@ -112,9 +112,6 @@ class DataBaseManager{
 ClosedState --|> State
 OpenState --|> State
 Gate o-- State
-Gate *-- Motor
-Gate *-- RGBController
-Gate *-- ScreenController
 
 
 
@@ -137,3 +134,7 @@ DOOR_OPEN --> DOOR_CLOSED: After the vehicle disappears from the webcam
 
 ```
 
+
+<!-- Gate *-- Motor
+Gate *-- RGBController
+Gate *-- ScreenController -->
