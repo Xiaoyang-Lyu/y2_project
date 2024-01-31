@@ -3,21 +3,21 @@ classDiagram
 
 class State{
     +run() void*
-    +change_state(self,context) void*
+    +change_state(door,self,context) void*
 
 }
 
 class CloseState{
     +run() void
-    +change_state(self,context) void
+    +change_state(door,self,context) void
 }
 
 class OpenState{
     +run() void
-    +change_state(self,context) void
+    +change_state(door,self,context) void
 }
 
-class MotorControler{
+class MotorController{
     const int MOTOR_PIN
     const int OPEN_STATE_VOLTAGE_OR_ANGLE
     const int CLOSE_STATE_VOLTAGE_OR_ANGLE
@@ -25,9 +25,9 @@ class MotorControler{
     +run() void
 }
 
-class RGBControler
+class RGBController
 
-class ScreenControler
+class ScreenController
 
 
 class Door{
@@ -36,16 +36,21 @@ class Door{
 
 class AI
 
-class DataBaseManager
+class DataBaseManager{
+    +add() void
+    +delete() void
+    +modify() void
+    +search() int
+}
 
 
 CloseState --|> State
 OpenState --|> State
 Door o-- CloseState
 Door o-- OpenState
-Door o-- MotorControler
-Door o-- RGBControler
-Door o-- ScreenControler
+Door o-- MotorController
+Door o-- RGBController
+Door o-- ScreenController
 
 
 
@@ -62,6 +67,7 @@ Door_open
 Door_close --> [*]: System close
 Door_close --> Door_open: Certification passed
 Door_open --> Door_close: After the vehicle disappears from the webcam
+
 
 
 
