@@ -46,11 +46,13 @@ class State{
 
 
 class ClosedState{
+    Gate gate 
     +run() void
     +change_state(gate) void
 }
 
 class OpenState{
+    Gate gate
     +run() void
     +change_state(gate) void
 }
@@ -122,13 +124,13 @@ Gate *-- ScreenController
 ```mermaid
 stateDiagram
 
-Door_close
-Door_open
+DOOR_CLOSED
+DOOR_OPEN
 
-[*] --> Door_close: System init
-Door_close --> [*]: System close
-Door_close --> Door_open: Certification passed
-Door_open --> Door_close: After the vehicle disappears from the webcam
+[*] --> DOOR_CLOSED: System init
+DOOR_CLOSED --> [*]: System close
+DOOR_CLOSED --> DOOR_OPEN: Certification passed
+DOOR_OPEN --> DOOR_CLOSED: After the vehicle disappears from the webcam
 
 
 
