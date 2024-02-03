@@ -1,3 +1,5 @@
+import gate
+
 class GateApp:
     def __init__(self, gate: Gate, reader: VehicleldReader, db_manager: DataBaseManager):
         self.gate = gate
@@ -6,6 +8,7 @@ class GateApp:
         pass
 
     def run(self):
+        
         pass
 
     def exit():

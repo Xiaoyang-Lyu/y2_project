@@ -21,7 +21,11 @@ class OpenState(State):
         pass
 
     def run(self):
-        print(1)
+        # use loop to get indicator function
+        for i in gate.indicators:
+            gate.indicators[i].on_gate_open()
+
+
         pass
 
     def change_state(self):
@@ -34,7 +38,9 @@ class ClosedState(State):
         pass
 
     def run(self):
-        print(2)
+        # use loop to get indicator function
+        for i in gate.indicators:
+            gate.indicators[i].on_gate_close()
         
         pass
 
