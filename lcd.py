@@ -172,9 +172,9 @@ class lcd:
 
 #test
 
-mylcd = lcd()
-mylcd.lcd_display_string("121212", 2)
-sleep(1) 
-mylcd.lcd_clear()
-sleep(1) 
-mylcd.lcd_display_string("test", 1)
+# mylcd = lcd()
+# mylcd.lcd_display_string("121212", 2)
+# sleep(1) 
+# mylcd.lcd_clear()
+# sleep(1) 
+# mylcd.lcd_display_string("test", 1)
