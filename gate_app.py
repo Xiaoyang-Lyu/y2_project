@@ -17,6 +17,8 @@ class GateApp:
         self.db_manager = db_manager
 
     def run(self):
+        # TODO: active the camera and connect to the DB
+
         # TODO: import real indicator
         # self.gate.register_indicator(motor.DoorIndicator)
         # self.gate.register_indicator(lcd.lcd)
@@ -46,8 +48,10 @@ class GateApp:
 # TODO: Check if it need pause
 
     def exit(self):
+        #TODO: closed camera and db
         if self.gate.state.current_state() == OPEN_STATE:
             self.gate.state.change_state()
             self.gate.state.run()
+
 
 
