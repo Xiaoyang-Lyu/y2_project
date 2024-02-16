@@ -50,8 +50,7 @@ class DataBaseManager:
         cur = conn.cursor()
         cur.execute("SELECT Username FROM Users WHERE carID LIKE ?", ('%' + carID + '%',))
         results = cur.fetchall()
-        return results
-
+        return len(results) > 0
 
 '''
 table Users:
