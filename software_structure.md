@@ -11,9 +11,9 @@ class GateApp{
     
 }
 
-GateApp *-- Gate
-GateApp *-- VehicleIdReader
-GateApp *-- DataBaseManager
+GateApp o-- Gate
+GateApp o-- VehicleIdReader
+GateApp o-- DataBaseManager
 
 class VehicleIdReader{
     <<interface>>
@@ -97,7 +97,7 @@ class GateIndicator{
 GateIndicator <-- Motor: implements
 GateIndicator <-- RGBLightStateIndicator: implements
 GateIndicator <-- Screen: implements
-Gate *-- "1..m" GateIndicator: contains
+Gate o-- "1..m" GateIndicator: contains
 
 class DataBaseManager{
     +connect()
@@ -111,7 +111,7 @@ class DataBaseManager{
 
 ClosedState --|> State
 OpenState --|> State
-Gate o-- State
+Gate *-- State
 
 
 
@@ -135,6 +135,3 @@ DOOR_OPEN --> DOOR_CLOSED: After the vehicle disappears from the webcam
 ```
 
 
-<!-- Gate *-- Motor
-Gate *-- RGBController
-Gate *-- ScreenController -->
