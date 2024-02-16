@@ -2,6 +2,11 @@ import cv2
 import pytesseract
 
 class VehicleIdReader:
+    def active_camera(self):
+        pass
+    def release_camera(self):
+        pass
+    
     def get_vehicle_id(self):
         pass
     pass
