@@ -26,14 +26,15 @@ class OpenState(State):
 
     def run(self):
         # use loop to get indicator function
-        for i in self.gate._indicators:
-            self.gate._indicators[i].on_gate_open()
+        # for i in self.gate._indicators:
+        #     self.gate._indicators[i].on_gate_open()
+        print("open state")
 
 
         pass
 
     def change_state(self):
-        self.gate.state = ClosedState(gate)
+        self.gate.state = ClosedState(self.gate)
     
     def current_state(self):
         return "gate open"
@@ -46,13 +47,14 @@ class ClosedState(State):
 
     def run(self):
         # use loop to get indicator function
-        for i in self.gate._indicators:
-            self.gate._indicators[i].on_gate_close()
+        # for i in self.gate._indicators:
+        #     self.gate._indicators[i].on_gate_close()
+        print("closed state")
         
         pass
 
     def change_state(self):
-        self.gate.state = OpenState(gate)
+        self.gate.state = OpenState(self.gate)
 
     def current_state(self):
         return "gate closed"
