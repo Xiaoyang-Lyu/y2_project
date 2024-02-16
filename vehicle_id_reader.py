@@ -1,5 +1,6 @@
 import cv2
 import pytesseract
+import re
 
 class VehicleIdReader:
     def active_camera(self):
@@ -32,8 +33,17 @@ class WebCamVehicleIdreader(VehicleIdReader):
         gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         # Use pytesseract to recognize text
         text = pytesseract.image_to_string(gray_frame)
-
-        return text.strip()
+        pattern = re.compile(r'\b[A-Z0-9]{7}\b')
+        
+        # 使用正则表达式查找所有匹配项
+        matches = pattern.findall(text)
+        
+        # 根据找到的匹配项返回结果
+        if matches:
+            return matches[0]# 如果找到多个匹配项，将它们连接成一个字符串返回
+        else:
+            return "No valid ID found"
+     
             
 
 class MockVehicleIdReader(VehicleIdReader):
@@ -52,8 +62,8 @@ class MockVehicleIdReader(VehicleIdReader):
         
         # Use pytesseract to recognize text
         text = pytesseract.image_to_string(gray_frame)
-
-        return text.strip()
+        
+        # return text.strip()
     def active_camera(self):
         pass
 

@@ -22,8 +22,8 @@ class GateApp:
         self.reader.active_camera()
 
         # TODO: import real indicator
-        self.gate.register_indicator(motor.DoorIndicator)
-        self.gate.register_indicator(lcd.lcd)
+        # self.gate.register_indicator(motor.DoorIndicator)
+        # self.gate.register_indicator(lcd.lcd)
         
         while (True):
             vehicle_id = self.reader.get_vehicle_id()
@@ -37,6 +37,7 @@ class GateApp:
                 self.gate.current_vehicle_id = vehicle_id
                 self.gate.state.change_state()
                 self.gate.state.run()
+                time.sleep(8)
             # TODO: delete test code
                 # self.gate.test_code = 1
 # TODO: Check if it need pause
@@ -45,6 +46,7 @@ class GateApp:
                     continue
                 self.gate.state.change_state()
                 self.gate.state.run()
+                time.sleep(5)
             # TODO: delete test code
                 # self.gate.test_code = 0
 # TODO: Check if it need pause
