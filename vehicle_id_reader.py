@@ -32,8 +32,8 @@ class WebCamVehicleIdreader(VehicleIdReader):
             
 
 class MockVehicleIdReader(VehicleIdReader):
-    def __init__(self, image_path):
-        self.image_path = image_path
+    def __init__(self):
+        self.image_path = "test_image.jpg"
 
     def get_vehicle_id(self):
         # Read the image from the specified path
@@ -49,3 +49,8 @@ class MockVehicleIdReader(VehicleIdReader):
         text = pytesseract.image_to_string(gray_frame)
 
         return text.strip()
+    def active_camera(self):
+        pass
+
+    def release_camera(self):
+        pass
