@@ -29,14 +29,14 @@ class OpenState(State):
         pass
 
     def run(self):
-        # use loop to get indicator function
+        # use loop to get indicators function
         # for i in self.gate._indicators:
         #     self.gate._indicators[i].on_gate_open()
         # TODO: clear
-        self.gate.indicator[LCD].lcd_clear()
-        self.gate.indicator[MOTOR].on_gate_open()
-        self.gate.indicator[LCD].lcd_display_string(f"Welcome!",1)
-        self.gate.indicator[LCD].lcd_display_string(f"{self.gate.current_vehicle_id}",2)
+        self.gate.indicators[LCD].lcd_clear()
+        self.gate.indicators[MOTOR].on_gate_open()
+        self.gate.indicators[LCD].lcd_display_string(f"Welcome!",1)
+        self.gate.indicators[LCD].lcd_display_string(f"{self.gate.current_vehicle_id}",2)
         print("open state")
 
 
@@ -55,15 +55,15 @@ class ClosedState(State):
         pass
 
     def run(self):
-        # use loop to get indicator function
+        # use loop to get indicators function
         # for i in self.gate._indicators:
         #     self.gate._indicators[i].on_gate_close()
         # TODO: Clear
-        
-        self.gate.indicator[LCD].lcd_clear()
-        self.gate.indicator[MOTOR].on_gate_close()
-        self.gate.indicator[LCD].lcd_display_string(f"test",1)
-        self.gate.indicator[LCD].lcd_display_string(f"test",2)
+
+        self.gate.indicators[LCD].lcd_clear()
+        self.gate.indicators[MOTOR].on_gate_close()
+        self.gate.indicators[LCD].lcd_display_string(f"test",1)
+        self.gate.indicators[LCD].lcd_display_string(f"test",2)
         print("closed state")
         
         pass
