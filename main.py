@@ -6,7 +6,8 @@ import sys
 
 
 gate = gate.Gate()
-reader = vehicle_id_reader.MockVehicleIdReader()
+# reader = vehicle_id_reader.MockVehicleIdReader()
+reader = vehicle_id_reader.WebCamVehicleIdreader()
 db_manger = db_manager.DataBaseManager()
 app = gate_app.GateApp(gate, reader, db_manger)
 try:
