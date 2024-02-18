@@ -28,8 +28,8 @@ class DataBaseManager:
             cur.execute("INSERT INTO Users (Username, carID) VALUES (?, ?)", (Username, carID))
             conn.commit()
             return True  # Return True to indicate success
-        except sqlite3.Error as e:
-            print(f"Database error: {e}")
+        except sqlite3.Error as ea:
+            print(f"Database error: {ea}")
         return False  # Return False on error
         
     def delete(self, carID):
@@ -58,8 +58,8 @@ class DataBaseManager:
             cur.execute("UPDATE Users SET Username = ?, carID = ? WHERE UserId = ?", (Username, carID, user_id))
             conn.commit()
             return True  # Return True to indicate success
-        except sqlite3.Error as f:
-            print(f"Database error: {f}")
+        except sqlite3.Error as em:
+            print(f"Database error: {em}")
         return False  # Return False on error
 
     def search(self, carID):
