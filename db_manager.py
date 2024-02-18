@@ -30,7 +30,7 @@ class DataBaseManager:
             return True  # Return True to indicate success
         except sqlite3.Error as ea:
             print(f"Database error: {ea}")
-        return False  # Return False on error
+        return False  # Return False if a UNIQUE constraint violation occurs
         
     def delete(self, carID):
         # Delete a user from the Users table by carID
@@ -60,7 +60,7 @@ class DataBaseManager:
             return True  # Return True to indicate success
         except sqlite3.Error as em:
             print(f"Database error: {em}")
-        return False  # Return False on error
+        return False  # Return False if a UNIQUE constraint violation occurs
 
     def search(self, carID):
         # Search for username in the Users table by carID
