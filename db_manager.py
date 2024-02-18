@@ -39,12 +39,6 @@ class DataBaseManager:
         cur.execute("DELETE FROM Users WHERE carID = ?", (carID,))
         conn.commit()
 
-    def delete_n(self, Username):
-        # Delete a user from the Users table by username
-        conn = self.connect()
-        cur = conn.cursor()
-        cur.execute("DELETE FROM Users WHERE Username = ?", (Username,))
-        conn.commit()
 
     def modify(self, user_id, Username, carID):
         # Modify an existing user's name and code in the Users table by ID
