@@ -136,7 +136,7 @@ class ModifyMenu(Menu):
         is_success = self.db.search(modified_id)[ISSUCCESS]
 
         if is_success:
-            print(f"The user is: {self.db.search(modified_id)[RESULT]} plate ID: {user_input}")
+            print(f"The user is: {self.db.search(modified_id)[RESULT]} plate ID: {modified_id}")
             input_name = input("Please input new name:")
             input_id = input("Please input new ID:")
             is_success = self.db.modify(modified_id, input_name, input_id)
