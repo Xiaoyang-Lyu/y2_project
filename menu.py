@@ -16,6 +16,7 @@ EXIT = '0'
 class Menu():
     def __init__(self, db: db_manager.DataBaseManager):
         self.db = db
+        self.db.connect()
         self.current_menu = None
         pass
     
@@ -24,17 +25,16 @@ class Menu():
         pass
 
     def change_menu(self):
+        self.db.close()
         return MainMenu(self.db)
         pass
     
 
 
 class MainMenu(Menu):
-    def __init__(self, db: db_manager.DataBaseManager):
-        super().__init__(db)
-        self.current_menu = MAINMENU
         
     def run(self):
+        self.current_menu = MAINMENU
         print(f"Welcome to DataBase User Interface! Please input ")
         print("1. Add")
         print("2. Delete")
@@ -65,6 +65,7 @@ class MainMenu(Menu):
             return
         
     def change_menu(self):
+        self.db.close()
         if self.current_menu == ADDMENU:
             return AddMenu(self.db)
         
@@ -77,13 +78,6 @@ class MainMenu(Menu):
         if self.current_menu == MODIFYMENU:
             return ModifyMenu(self.db)
 
-
-
-
-
-class TestMenu(Menu):
-    def run(self):
-        print("test")
 
 class AddMenu(Menu):
     def run(self):
