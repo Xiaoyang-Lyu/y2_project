@@ -28,8 +28,8 @@ class DataBaseManager:
             cur.execute("INSERT INTO Users (Username, carID) VALUES (?, ?)", (Username, carID))
             conn.commit()
             return True  # Return True to indicate success
-        except sqlite3.Error as ea:
-            print(f"Database error: {ea}")
+        except sqlite3.Error as e:
+            print(f"Database error: {e}")
         return False  # Return False if a UNIQUE constraint violation occurs
         
     def delete(self, carID):
@@ -40,21 +40,27 @@ class DataBaseManager:
         conn.commit()
 
 
-    def modify(self, user_id, Username, carID):
-        # Modify an existing user's name and code in the Users table by ID
-        if not re.match(r'^[A-Z0-9]{7}$', carID):
+    
+    def modify(self, old_carID, Username, new_carID):
+        # Modify an existing user's name and carID in the Users table by the old carID
+        if not re.match(r'^[A-Z0-9]{7}$', new_carID):
             print("carID must be a 7-character alphanumeric combination.")
             return False
 
         try:
             conn = self.connect()
             cur = conn.cursor()
-            cur.execute("UPDATE Users SET Username = ?, carID = ? WHERE UserId = ?", (Username, carID, user_id))
+            # Update the record based on the old carID
+            cur.execute("UPDATE Users SET Username = ?, carID = ? WHERE carID = ?", (Username, new_carID, old_carID))
             conn.commit()
+            if cur.rowcount == 0:
+                print("No user found with the specified carID.")
+                return False  # Return False if no user is found with the specified carID
             return True  # Return True to indicate success
-        except sqlite3.Error as em:
-            print(f"Database error: {em}")
-        return False  # Return False if a UNIQUE constraint violation occurs
+        except sqlite3.Error as e:
+            print(f"Database error: {e}")
+        return False  # Return False if a UNIQUE constraint violation occurs or other database error occurs
+
 
     def search(self, carID):
         # Search for username in the Users table by carID
