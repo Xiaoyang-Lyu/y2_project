@@ -1,5 +1,6 @@
 import menu
 import db_manager
+import os
 
 class DataBaseUIApp:
     def __init__(self, menu: menu.Menu, db: db_manager.DataBaseManager):
@@ -7,6 +8,7 @@ class DataBaseUIApp:
         self.db = db        
 
     def run(self):
+        os.system('clear')
         while(True):
            self.menu.run()
            self.menu = self.menu.change_menu()
