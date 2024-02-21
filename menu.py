@@ -24,6 +24,7 @@ class Menu():
         pass
 
     def change_menu(self):
+        return MainMenu(self.db)
         pass
     
 
@@ -97,8 +98,8 @@ class AddMenu(Menu):
 
         self.current_menu = MAINMENU
 
-    def change_menu(self):
-        return MainMenu(self.db)
+    # def change_menu(self):
+    #     return MainMenu(self.db)
             
 class DeleteMenu(Menu):
     def run(self):
@@ -112,8 +113,8 @@ class DeleteMenu(Menu):
 
         self.current_menu = MAINMENU
 
-    def change_menu(self):
-        return MainMenu(self.db)
+    # def change_menu(self):
+    #     return MainMenu(self.db)
 
 
 ISSUCCESS = 0
@@ -127,17 +128,41 @@ class SearchMenu(Menu):
             print(f"The result is: {self.db.search(user_input)[RESULT]} plate ID: {user_input}")
 
         else:
-            print("The user is not exist!")
+            print(f"{user_input} does not exist!")
 
         self.current_menu = MAINMENU
 
-    def change_menu(self):
-        return MainMenu(self.db)
+    # def change_menu(self):
+    #     return MainMenu(self.db)
 
 
 class ModifyMenu(Menu):
     def run(self):
-        pass
+        modified_id = input("Please input the plate ID:")
+        is_success = self.db.search(modified_id)[ISSUCCESS]
+
+        if is_success:
+            print(f"The user is: {self.db.search(modified_id)[RESULT]} plate ID: {user_input}")
+            input_name = input("Please input new name:")
+            input_id = input("Please input new ID:")
+            is_success = self.db.modify(modified_id, input_name, input_id)
+
+            if is_success:
+                print("Your changed successful!")
+                self.current_menu = MainMenu
+                return
+            else:
+                print("Your changed failed. Please check the format of new id ID")
+                self.current_menu = MainMenu
+                return
+
+        else: 
+            print(f"{modified_id} does not exist")
+        self.current_menu = MainMenu
+        
+
+
+
 
 
 
