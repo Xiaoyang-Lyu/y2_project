@@ -27,3 +27,5 @@ gateapp passed offline testing.The program behaves as expected
 ## Weekend -> Now
 
 Complete DBUI App program
+
+TODO: Project's code review and merge all branch
