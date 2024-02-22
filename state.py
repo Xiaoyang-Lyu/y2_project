@@ -2,9 +2,11 @@ import gate
 import lcd
 import motor
 
-# MOTOR = 0
-# LCD = 1
-# define a state interface 
+# Define magic number
+CLOSED_STATE = "gate closed"
+OPEN_STATE = "gate open"
+
+# Define a state interface 
 class State:
     def __init__(self, gate):
         self.gate = gate
@@ -12,13 +14,13 @@ class State:
 
 
     def run(self):
-        # the state method will be implemented here with gate
+        # The state method will be implemented here with gate
         pass
 
     def change_state(self):
         pass
     
-    # print current_state
+    # Print current_state
     def current_state(self):
         pass
 
@@ -29,17 +31,12 @@ class OpenState(State):
         pass
 
     def run(self):
-        # use loop to get indicators function
-        # for i in self.gate._indicators:
-        #     self.gate._indicators[i].on_gate_open()
-        # TODO: clear
-        # self.gate.indicators[LCD].lcd_clear()
-        # self.gate.indicators[MOTOR].on_gate_open()
-        # self.gate.indicators[LCD].lcd_display_string(f"Welcome!",1)
-        
-        # self.gate.indicators[LCD].lcd_display_string(f"{self.gate.current_vehicle_id}",2)
-        self.gate.lcd.lcd_clear()
+        # Run motor
         self.gate.motor.on_gate_open()
+
+        # TODO: check if need print name on lcd
+        # Run lcd screen
+        self.gate.lcd.lcd_clear() # Clean the screen
         self.gate.lcd.lcd_display_string(f"Welcome!",1)
         self.gate.lcd.lcd_display_string(f"{self.gate.current_vehicle_id}",2)
         print("open state")
@@ -60,13 +57,12 @@ class ClosedState(State):
         pass
 
     def run(self):
-        # use loop to get indicators function
-        # for i in self.gate._indicators:
-        #     self.gate._indicators[i].on_gate_close()
-        # TODO: Clear
-
-        self.gate.lcd.lcd_clear()
+        # Run motor
         self.gate.motor.on_gate_close()
+
+        # TODO: check closed state lcd output
+        # Run lcd screen
+        self.gate.lcd.lcd_clear() # Clean the screen
         self.gate.lcd.lcd_display_string(f"test",1)
         self.gate.lcd.lcd_display_string(f"test",2)
         print("closed state")

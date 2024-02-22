@@ -35,12 +35,11 @@ class WebCamVehicleIdreader(VehicleIdReader):
         text = pytesseract.image_to_string(gray_frame)
         pattern = re.compile(r'\b[A-Z0-9]{7}\b')
         
-        # 使用正则表达式查找所有匹配项
+        # Use rc to find result
         matches = pattern.findall(text)
         
-        # 根据找到的匹配项返回结果
         if matches:
-            return matches[0]# 如果找到多个匹配项，将它们连接成一个字符串返回
+            return matches[0]# If multiple matches are found, concatenate them into a string and return
         else:
             return "No valid ID found"
      
