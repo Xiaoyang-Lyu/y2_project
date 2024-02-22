@@ -17,13 +17,13 @@ DataBase UI structure design and further coding.
 
 # Week3
 
-# Wednesday
+## Wednesday
 Complete the gateapp program
 
-# Friday
+## Friday
 
 gateapp passed offline testing.The program behaves as expected
 
-# Weekend -> Now
+## Weekend -> Now
 
 Complete DBUI App program
