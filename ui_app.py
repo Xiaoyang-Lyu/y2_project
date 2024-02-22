@@ -8,6 +8,7 @@ class DataBaseUIApp:
         self.db = db        
 
     def run(self):
+        # Clean terminal
         os.system('clear')
         while(True):
            self.menu.run()
@@ -16,6 +17,7 @@ class DataBaseUIApp:
 
 
     def exit(self):
+        # Close connection to DB
         self.db.close()
         pass
 
@@ -24,9 +26,11 @@ if __name__ == "__main__":
     # it can initial any menu
     main_menu = menu.MainMenu(db)
     app = DataBaseUIApp(main_menu, db)
+
     try:
         print("Running... Press Ctrl+C to exit.")
         app.run()
+
     except KeyboardInterrupt:
         print("Received Ctrl+C. Exiting...")
         app.exit()

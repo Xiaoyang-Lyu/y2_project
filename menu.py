@@ -12,7 +12,7 @@ EXIT = '0'
 
 
 
-
+# Menu interface
 class Menu():
     def __init__(self, db: db_manager.DataBaseManager):
         self.db = db
@@ -66,6 +66,9 @@ class MainMenu(Menu):
         
     def change_menu(self):
         self.db.close()
+        if self.current_menu == MAINMENU:
+            return MainMenu(self.db)
+
         if self.current_menu == ADDMENU:
             return AddMenu(self.db)
         
@@ -81,8 +84,11 @@ class MainMenu(Menu):
 
 class AddMenu(Menu):
     def run(self):
+        # Get input
         user_name_input = input("Please input your name:")
         user_vehicle_id_input = input("Please input your plate ID:")
+
+        # Check if the input available
         is_added = self.db.add(user_name_input, user_vehicle_id_input)
         if is_added:
             print("You have successfully added a user!")
@@ -92,12 +98,12 @@ class AddMenu(Menu):
 
         self.current_menu = MAINMENU
 
-    # def change_menu(self):
-    #     return MainMenu(self.db)
             
 class DeleteMenu(Menu):
     def run(self):
         user_input = input("Please input plate ID you want to delete or input a character to quit:")
+
+        # Check if the input available
         is_deleted = self.db.delete(user_input)
         if is_deleted:
             print(f"You have successfully deleted the user {user_input}")
@@ -107,8 +113,6 @@ class DeleteMenu(Menu):
 
         self.current_menu = MAINMENU
 
-    # def change_menu(self):
-    #     return MainMenu(self.db)
 
 
 ISSUCCESS = 0
@@ -126,8 +130,6 @@ class SearchMenu(Menu):
 
         self.current_menu = MAINMENU
 
-    # def change_menu(self):
-    #     return MainMenu(self.db)
 
 
 class ModifyMenu(Menu):
@@ -158,20 +160,3 @@ class ModifyMenu(Menu):
 
 
 
-
-
-if __name__ == "__main__":
-    
-    # menu = MainMenu(db = db_manager.DataBaseManager())
-    # menu.run()
-
-    try:
-        print("Running... Press Ctrl+C to exit.")
-        while True:
-            # 在这里放你的程序主体逻辑
-            time.sleep(1)
-            os.kill(os.getpid(), signal.SIGINT)
-    except KeyboardInterrupt:
-        # 如果你的程序在循环之外，也可以在这里添加退出操作
-        print("Received Ctrl+C. Exiting...")
-        exit(0)
