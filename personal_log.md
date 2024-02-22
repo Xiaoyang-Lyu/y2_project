@@ -14,3 +14,16 @@ Vehicle Id reader test and raspberry pi hardware test.
 ## Weekend
 DataBase UI structure design and further coding.
 
+
+# Week3
+
+# Wednesday
+Complete the gateapp program
+
+# Friday
+
+gateapp passed offline testing.The program behaves as expected
+
+# Weekend -> Now
+
+Complete DBUI App program
