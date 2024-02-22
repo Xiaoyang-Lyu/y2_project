@@ -109,11 +109,58 @@ class DataBaseManager{
 }
 
 
-ClosedState --|> State
-OpenState --|> State
+ClosedState --|> State: implements
+OpenState --|> State: implements
 Gate *-- State
 
 
+class DataBaseUIApp{
+    +Menu
+}
+
+Menu o-- DataBaseManager
+class Menu{
+    <<interface>>
+    DataBaseManager
+    +run() void
+    +change_state(gate) void
+}
+
+class MainMenu{
+    DataBaseManager
+    +run() void
+    +change_state(gate) void
+}
+
+
+class AddMenu{
+    DataBaseManager
+    +run() void
+    +change_state(gate) void
+}
+class DeleteMenu{
+    DataBaseManager
+    +run() void
+    +change_state(gate) void
+}
+class SearchMenu{
+    DataBaseManager
+    +run() void
+    +change_state(gate) void
+}
+
+class ModifyMenu{
+    DataBaseManager
+    +run() void
+    +change_state(gate) void
+}
+
+MainMenu --|> Menu
+AddMenu --|> Menu
+DeleteMenu --|> Menu
+SearchMenu --|> Menu
+ModifyMenu --|> Menu
+DataBaseUIApp *-- Menu
 
 
 ```
@@ -134,4 +181,24 @@ DOOR_OPEN --> DOOR_CLOSED: After the vehicle disappears from the webcam
 
 ```
 
+```mermaid
+stateDiagram
 
+MAIN_MENU
+ADD_MENU 
+SEARCH_MENU 
+DELETE_MENU 
+MODIFY_MENU 
+
+[*] --> MAIN_MENU
+MAIN_MENU --> [*]
+MAIN_MENU --> ADD_MENU
+MAIN_MENU --> SEARCH_MENU 
+MAIN_MENU --> DELETE_MENU 
+MAIN_MENU --> MODIFY_MENU
+ADD_MENU    --> MAIN_MENU  
+SEARCH_MENU --> MAIN_MENU   
+DELETE_MENU --> MAIN_MENU   
+MODIFY_MENU --> MAIN_MENU  
+
+```
