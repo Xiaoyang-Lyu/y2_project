@@ -115,42 +115,42 @@ Gate *-- State
 
 
 class DataBaseUIApp{
-    db_manager
     +Menu
 }
 
-DataBaseUIApp o-- DataBaseManager
+Menu o-- DataBaseManager
 class Menu{
     <<interface>>
-    DataBaseUIApp
+    DataBaseManager
     +run() void
     +change_state(gate) void
 }
 
 class MainMenu{
-    DataBaseUIApp
+    DataBaseManager
     +run() void
     +change_state(gate) void
 }
 
 
 class AddMenu{
-    DataBaseUIApp
+    DataBaseManager
     +run() void
     +change_state(gate) void
 }
 class DeleteMenu{
-    DataBaseUIApp
+    DataBaseManager
     +run() void
     +change_state(gate) void
 }
 class SearchMenu{
-    DataBaseUIApp
+    DataBaseManager
     +run() void
     +change_state(gate) void
 }
+
 class ModifyMenu{
-    DataBaseUIApp
+    DataBaseManager
     +run() void
     +change_state(gate) void
 }
