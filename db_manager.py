@@ -33,11 +33,16 @@ class DataBaseManager:
         return False  # Return False if a UNIQUE constraint violation occurs
         
     def delete(self, carID):
-        # Delete a user from the Users table by carID
-        conn = self.connect()
-        cur = conn.cursor()
-        cur.execute("DELETE FROM Users WHERE carID = ?", (carID,))
-        conn.commit()
+        try:
+            # Delete a user from the Users table by carID
+            conn = self.connect()
+            cur = conn.cursor()
+            cur.execute("DELETE FROM Users WHERE carID = ?", (carID,))
+            conn.commit()
+            return True  # Return True to indicate success
+        except sqlite3.Error as e:
+            print(f"Database error: {e}")
+        return False  # Return False if a UNIQUE constraint violation occurs
 
 
     
@@ -64,8 +69,6 @@ class DataBaseManager:
 
     def search(self, carID):
         # Search for username in the Users table by carID
-        # conn = self.connect()
-        cur = self.connection.cursor()
         # conn = self.connect()
         cur = self.connection.cursor()
         cur.execute("SELECT Username FROM Users WHERE carID LIKE ?", ('%' + carID + '%',))
