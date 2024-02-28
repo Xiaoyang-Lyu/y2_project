@@ -1,10 +1,10 @@
 from signal import pause
-import gate
-import db_manager
-import vehicle_id_reader
+import gate.gate as gate
+import imdb.db_manager as db_manager
+import reader.vehicle_id_reader as vehicle_id_reader
 import time
-import motor
-import lcd
+import indicators.motor as motor
+import indicators.lcd as lcd
 
 # Define magic number
 CLOSED_STATE = "gate closed"

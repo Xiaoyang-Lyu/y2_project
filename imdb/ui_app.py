@@ -1,5 +1,5 @@
-import menu
-import db_manager
+import imdb.menu as menu
+import imdb.db_manager as db_manager
 import os
 
 class DataBaseUIApp:

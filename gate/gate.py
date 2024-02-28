@@ -1,6 +1,6 @@
-import state
-import motor
-import lcd
+import gate.state as state
+import indicators.motor as motor
+import indicators.lcd as lcd
 
 class Gate:
     def __init__(self, lcd: lcd.lcd, motor: motor.DoorIndicator):
