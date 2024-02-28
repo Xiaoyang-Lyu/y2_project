@@ -31,7 +31,7 @@ if __name__ == "__main__":
         print("Running... Press Ctrl+C to exit.")
         app.run()
 
-    except KeyboardInterrupt:
-        print("Received Ctrl+C. Exiting...")
+    # Release resource
+    finally:    
         app.exit()
         exit(0)

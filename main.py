@@ -28,9 +28,8 @@ try:
     # Run the whole program
     app.run()
 
-# when catch keyboard interrupt
-except KeyboardInterrupt:
-    print('Caught Ctrl+C, exiting gracefully')
+# When meet error, the program will release resource
+finally:
     # Run the quit function
     app.exit()
 
