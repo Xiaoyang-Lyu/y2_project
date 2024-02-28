@@ -8,6 +8,7 @@ DELETEMENU = '2'
 SEARCHMENU = '3'
 MODIFYMENU = '4'
 MAINMENU = '5'
+SHOWTATABLE = '5'
 EXIT = '0'
 
 
@@ -40,6 +41,7 @@ class MainMenu(Menu):
         print("2. Delete")
         print("3. Search")
         print("4. Modify")
+        print("5. Show whole table")
         print("0. Exit")
 
         user_input = input("Please enter your choice (0-5): ")
@@ -55,6 +57,9 @@ class MainMenu(Menu):
 
         elif user_input == MODIFYMENU:
             self.current_menu = MODIFYMENU
+
+        elif user_input == SHOWTATABLE:
+            self.db.show_table()
 
         elif user_input == EXIT:
             # send KeyboardInterrupt signal

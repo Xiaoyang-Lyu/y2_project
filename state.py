@@ -63,8 +63,8 @@ class ClosedState(State):
         # TODO: check closed state lcd output
         # Run lcd screen
         self.gate.lcd.lcd_clear() # Clean the screen
-        self.gate.lcd.lcd_display_string(f"test",1)
-        self.gate.lcd.lcd_display_string(f"test",2)
+        self.gate.lcd.lcd_display_string(f"Invalid",1)
+        # self.gate.lcd.lcd_display_string(f"test",2)
         print("closed state")
         
         pass

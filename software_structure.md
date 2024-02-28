@@ -168,13 +168,13 @@ DataBaseUIApp *-- Menu
 ```mermaid
 stateDiagram
 
-DOOR_CLOSED
-DOOR_OPEN
+GATE_CLOSED
+GATE_OPEN
 
-[*] --> DOOR_CLOSED: System init
-DOOR_CLOSED --> [*]: System close
-DOOR_CLOSED --> DOOR_OPEN: Certification passed
-DOOR_OPEN --> DOOR_CLOSED: After the vehicle disappears from the webcam
+[*] --> GATE_CLOSED: System init
+GATE_CLOSED --> [*]: System close
+GATE_CLOSED --> GATE_OPEN: Certification passed
+GATE_OPEN --> GATE_CLOSED: After the vehicle disappears from the webcam
 
 
 

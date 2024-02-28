@@ -37,6 +37,7 @@ class GateApp:
             if is_passed:
                 # If gate is already open, then it doesn't run the indicators again
                 if self.gate.state.current_state() == OPEN_STATE:
+                    time.sleep(5)
                     continue
                 self.gate.current_vehicle_id = vehicle_id
                 # TODO: self.gate.current_vehicle_name = result_name
@@ -44,7 +45,7 @@ class GateApp:
                 # Switch to open state and run the indicators
                 self.gate.state.change_state()
                 self.gate.state.run()
-                time.sleep(8)
+                time.sleep(5)
 
             else:
                 # If gate is already closed, then it doesn't run the indicators again
