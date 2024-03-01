@@ -1,3 +1,13 @@
+# Week1
+## Tuesday
+Role allocation
+
+Requirement analysis
+
+## Wednesday to Friday
+Software structure design
+
+
 # Week2 
 
 ## Tuesday
@@ -29,3 +39,13 @@ gateapp passed offline testing.The program behaves as expected
 Complete DBUI App program
 
 TODO: Project's code review and merge all branch
+
+
+# Week4
+
+## Friday
+
+Poster brainstorm
+
+Final prototype test
+
