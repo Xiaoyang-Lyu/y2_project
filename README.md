@@ -25,10 +25,13 @@ The project involves the implementation of an Intelligent Parking Management Sys
 
 ### Hardware Requirements
 
-- Servo Motor
-Please makesure the Motor is connect to the pin 17 on the Pi
+- Servo Motor: 
+    - Micro Servo Motor SG90
+    - Please makesure the Motor is connect to the pin 17 on the Pi
 - LCD
-- Raspberry Pi
+    - LCD Display 16x2 I2C
+- Raspberry Pi: 
+    - Raspberry Pi 4b
 
 ### Instructions
 
