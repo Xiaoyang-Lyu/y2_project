@@ -2,7 +2,7 @@ import sqlite3
 import re
 
 class DataBaseManager:
-    def __init__(self, database='carid.db'):
+    def __init__(self, database='./imdb/carid.db'):
         self.connection = None
         self.database = database
 

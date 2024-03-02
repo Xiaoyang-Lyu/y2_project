@@ -1,5 +1,4 @@
-from sre_constants import SUCCESS
-import imdb.db_manager as db_manager
+import db_manager
 import os
 import signal
 import time
