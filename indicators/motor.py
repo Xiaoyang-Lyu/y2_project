@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO  # Imports the standard Raspberry Pi GPIO library
 import time 
 GPIO.setwarnings(False)
-from gate_indicator import GateIndicator
+from indicators.gate_indicator import GateIndicator
 
 class DoorIndicator(GateIndicator):
     def __init__(self):       

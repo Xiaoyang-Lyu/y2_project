@@ -1,4 +1,3 @@
-from sre_constants import SUCCESS
 import db_manager
 import os
 import signal

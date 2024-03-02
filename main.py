@@ -1,10 +1,10 @@
-import gate_app
-import gate
-import db_manager
-import vehicle_id_reader
+import gate.gate_app as gate_app
+import gate.gate as gate
+import imdb.db_manager as db_manager
+import reader.vehicle_id_reader as vehicle_id_reader
 import sys
-import lcd
-import motor
+import indicators.lcd as lcd
+import indicators.motor as motor
 
 # Initial specific indicator 
 lcd_indicator = lcd.lcd()
@@ -28,9 +28,8 @@ try:
     # Run the whole program
     app.run()
 
-# when catch keyboard interrupt
-except KeyboardInterrupt:
-    print('Caught Ctrl+C, exiting gracefully')
+# When meet error, the program will release resource
+finally:
     # Run the quit function
     app.exit()
 

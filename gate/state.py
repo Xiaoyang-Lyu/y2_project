@@ -1,6 +1,6 @@
-import gate
-import lcd
-import motor
+import gate.gate as gate
+import indicators.lcd as lcd
+import indicators.motor as motor
 
 # Define magic number
 CLOSED_STATE = "gate closed"
